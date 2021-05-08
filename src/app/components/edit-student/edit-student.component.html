@@ -1,0 +1,108 @@
+<button
+  class="btn btn-info me-3"
+  data-bs-toggle="modal"
+  [attr.data-bs-target]="'#editstudent'+student.id"
+>
+  Edit
+</button>
+<div
+  class="modal fade"
+  id="editstudent{{student.id}}" 
+  tabindex="-1"
+  aria-labelledby="editStudentModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editStudentModal">Edit Student</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #myForm="ngForm">
+          <!-- student name input -->
+          <div class="row mb-3">
+            <label for="title" class="col-sm-3 col-form-label"
+              >Student Name</label
+            >
+            <div class="col-sm-9">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="student name..."
+                class="form-control"
+                minlength="4"
+                required
+                [(ngModel)]="student.name"
+              />
+            </div>
+          </div>
+          <!-- student name validation -->
+          <div class="row justify-content-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+              <p
+                *ngIf="myForm.controls.name.invalid"
+                class="alert alert-danger p-1"
+              >
+                Enter a valid student name.
+              </p>
+            </div>
+          </div>
+          <!-- student email input -->
+          <div class="row mb-3">
+            <label for="title" class="col-sm-3 col-form-label"
+              >Student Email</label
+            >
+            <div class="col-sm-9">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="student email..."
+                class="form-control"
+                minlength="4"
+                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                required
+                [(ngModel)]="student.email"
+              />
+            </div>
+          </div>
+          <!-- student name validation -->
+          <div class="row justify-content-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+              <p
+                *ngIf="myForm.controls.email.invalid"
+                class="alert alert-danger p-1"
+              >
+                Enter a valid email.
+              </p>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="editStudent(myForm)"
+          [disabled]="myForm.invalid"
+          data-bs-dismiss="modal"
+        >
+          Update
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

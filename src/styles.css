@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+body {
+  color: rgb(219, 65, 116);
+  /* font-family: "Itim", "Courier New", Courier, monospace; */
+}

@@ -1,0 +1,10 @@
+.modal-header {
+  border-bottom: 0;
+  color:#000 !important;
+}
+
+.modal-footer {
+  border-top: 0;
+  color:#000 !important;
+}
+
